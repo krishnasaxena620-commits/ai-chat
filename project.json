@@ -1,0 +1,22 @@
+{
+  "overview": "A general-purpose AI chatbot interface similar to ChatGPT. Chat with an AI assistant anonymously — no login required, fully responsive on mobile and desktop.",
+  "features": [
+    "Real-time AI chat interface",
+    "Session-based conversation history",
+    "Mobile and desktop responsive design",
+    "Message copy to clipboard",
+    "Clear conversation button",
+    "Loading indicator while AI responds",
+    "Graceful error handling"
+  ],
+  "category": "productivity",
+  "tags": [
+    "ai",
+    "chatbot",
+    "chat",
+    "assistant",
+    "gpt",
+    "productivity"
+  ],
+  "last_updated": "2026-04-18T08:26:50.062Z"
+}

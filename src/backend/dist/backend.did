@@ -1,0 +1,45 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type Timestamp = int;
+type MessageRole = 
+ variant {
+   assistant;
+   user;
+ };
+type Message = 
+ record {
+   content: text;
+   role: MessageRole;
+   timestamp: Timestamp;
+ };
+type ChatResult = 
+ variant {
+   err: text;
+   ok: text;
+ };
+service : {
+  chat: (userMessage: text) -> (ChatResult);
+  clearHistory: () -> ();
+  getHistory: () -> (vec Message) query;
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+}

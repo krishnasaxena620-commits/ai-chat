@@ -1,0 +1,20 @@
+// Version: 1.0.0
+type MessageRole__49436217 = {#assistant; #user};
+type Message__454780518 = Message__528636030;
+type Message__528636030 =
+  {
+    content : Text;
+    role : MessageRole__49436217;
+    timestamp : Timestamp__301639476
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type Timestamp__301639476 = Int;
+actor {
+  stable history :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?Message__454780518]];
+      var elementIndex : Nat__490723111
+    }
+};

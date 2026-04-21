@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Figtree";
+    --font-body: "Figtree";
+    --font-mono: "GeistMono";
+    --radius: 0.5rem;
+
+    --background: 0.97 0.01 210;
+    --foreground: 0.15 0.02 210;
+    --card: 0.99 0.01 210;
+    --card-foreground: 0.15 0.02 210;
+    --popover: 0.98 0.01 210;
+    --popover-foreground: 0.15 0.02 210;
+
+    --primary: 0.5 0.12 248;
+    --primary-foreground: 0.98 0.01 210;
+
+    --secondary: 0.92 0.03 210;
+    --secondary-foreground: 0.25 0.03 210;
+    --muted: 0.9 0.01 210;
+    --muted-foreground: 0.45 0.02 210;
+
+    --accent: 0.58 0.18 260;
+    --accent-foreground: 0.98 0.01 210;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.88 0.02 210;
+    --input: 0.92 0.01 210;
+    --ring: 0.5 0.12 248;
+
+    --chart-1: 0.65 0.22 40;
+    --chart-2: 0.6 0.12 185;
+    --chart-3: 0.4 0.07 227;
+    --chart-4: 0.83 0.19 84;
+    --chart-5: 0.77 0.19 70;
+
+    --sidebar: 0.98 0.01 210;
+    --sidebar-foreground: 0.15 0.02 210;
+    --sidebar-primary: 0.5 0.12 248;
+    --sidebar-primary-foreground: 0.98 0.01 210;
+    --sidebar-accent: 0.9 0.01 210;
+    --sidebar-accent-foreground: 0.25 0.03 210;
+    --sidebar-border: 0.88 0.02 210;
+    --sidebar-ring: 0.5 0.12 248;
+  }
+
+  .dark {
+    --background: 0.1 0.01 210;
+    --foreground: 0.92 0.02 210;
+    --card: 0.135 0.01 210;
+    --card-foreground: 0.92 0.02 210;
+    --popover: 0.165 0.01 210;
+    --popover-foreground: 0.92 0.02 210;
+
+    --primary: 0.65 0.15 248;
+    --primary-foreground: 0.1 0.01 210;
+
+    --secondary: 0.165 0.01 210;
+    --secondary-foreground: 0.85 0.02 210;
+    --muted: 0.165 0.01 210;
+    --muted-foreground: 0.5 0.02 210;
+
+    --accent: 0.7 0.2 260;
+    --accent-foreground: 0.1 0.01 210;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.1 0.01 210;
+
+    --border: 0.22 0.01 210;
+    --input: 0.18 0.01 210;
+    --ring: 0.65 0.15 248;
+
+    --chart-1: 0.49 0.24 264;
+    --chart-2: 0.7 0.17 162;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.63 0.27 304;
+    --chart-5: 0.65 0.25 16;
+
+    --sidebar: 0.135 0.01 210;
+    --sidebar-foreground: 0.92 0.02 210;
+    --sidebar-primary: 0.65 0.15 248;
+    --sidebar-primary-foreground: 0.1 0.01 210;
+    --sidebar-accent: 0.165 0.01 210;
+    --sidebar-accent-foreground: 0.85 0.02 210;
+    --sidebar-border: 0.22 0.01 210;
+    --sidebar-ring: 0.65 0.15 248;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GeistMono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .synapse-logo {
+    @apply w-6 h-6 text-foreground flex-shrink-0;
+  }
+
+  .synapse-logo-sm {
+    @apply w-5 h-5 text-foreground flex-shrink-0;
+  }
+
+  .user-message {
+    @apply ml-auto mr-0 max-w-xs bg-accent text-accent-foreground rounded-2xl px-4 py-3 break-words;
+  }
+
+  .assistant-message {
+    @apply mr-auto ml-0 max-w-lg bg-card text-card-foreground rounded-2xl px-4 py-3 break-words border border-border;
+  }
+
+  .message-input {
+    @apply w-full bg-input text-foreground border border-border rounded-lg px-4 py-3 placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-0 transition-smooth;
+  }
+
+  .message-bubble {
+    @apply flex gap-2 items-end mb-4;
+  }
+
+  .loading-dot {
+    @apply w-2 h-2 bg-muted-foreground rounded-full;
+    animation: dot-bounce 1.2s ease-in-out infinite;
+  }
+
+  @keyframes dot-bounce {
+    0%,
+    80%,
+    100% {
+      transform: translateY(0);
+      opacity: 0.4;
+    }
+    40% {
+      transform: translateY(-6px);
+      opacity: 1;
+    }
+  }
+
+  .safe-area-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
